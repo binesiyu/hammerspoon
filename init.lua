@@ -15,6 +15,7 @@
 -- require "key-binding"
 
 require "ws"
+-- require "ws-grid"
 
 require "app"
 
