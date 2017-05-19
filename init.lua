@@ -20,9 +20,10 @@ require "ws"
 require "app"
 require "ctrl-esc"
 
+require "right-alt"
 -- -----------------------------------------------------------------------
 --                            ** For Debug **                           --
 -- -----------------------------------------------------------------------
 require "hs-reload"
 
-hs.alert.show("Config loaded")
+hs.alert.show("Hammerspoon, at your service.",1)

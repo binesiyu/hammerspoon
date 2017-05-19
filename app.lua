@@ -21,3 +21,21 @@ for i = 1, #applist do
         end
     end)
 end
+
+-- Toggle an application between being frontmost app and hidden
+function toggle_application(_app)
+    local app = hs.appfinder.appFromName(_app)
+    if not app then
+        hs.application.launchOrFocus(_app)
+    end
+    local mainwin = app:mainWindow()
+    if mainwin then
+        if mainwin == hs.window.focusedWindow() then
+            mainwin:application():hide()
+        else
+            mainwin:application():activate(true)
+            mainwin:application():unhide()
+            mainwin:focus()
+        end
+    end
+end
