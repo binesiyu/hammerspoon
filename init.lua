@@ -11,19 +11,16 @@
 -- -----------------------------------------------------------------------
 --                            ** Requires **                            --
 -- -----------------------------------------------------------------------
--- require "window-management"
--- require "key-binding"
 
 require "ws"
--- require "ws-grid"
 
 require "app"
 require "ctrl-esc"
 
-require "right-alt"
+require "window-cycle"
 -- -----------------------------------------------------------------------
 --                            ** For Debug **                           --
 -- -----------------------------------------------------------------------
-require "hs-reload"
+--require "hs-reload"
 
 hs.alert.show("Hammerspoon, at your service.",1)

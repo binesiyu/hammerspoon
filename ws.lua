@@ -16,6 +16,7 @@ winmod.config = {
    third_up    = { {"ctrl", "alt"       }, "Up" },
    third_down  = { {"ctrl", "alt"       }, "Down" },
    max_toggle  = { {"ctrl", "alt", "cmd"}, "M" },
+   center      = { {"ctrl", "alt", "cmd"}, "C" },
    -- max         = { {"ctrl", "alt", "cmd"}, "Up" },
    -- screen_left = { {"ctrl", "alt"}, "Left" },
    -- screen_right= { {"ctrl", "alt"}, "Right" },
@@ -48,6 +49,8 @@ function winmod.resizeCurrentWindow(how)
       newrect = {0,0.5,1,0.5}
    elseif how == "max" then
       newrect = hs.layout.maximized
+   elseif how == "center" then
+      newrect = {0.25,0.25,0.5,0.5}
    elseif how == "left_third" or how == "hthird-0" then
       newrect = {0,0,1/3,1}
    elseif how == "middle_third_h" or how == "hthird-1" then
@@ -149,6 +152,10 @@ function winmod.maximize()
    hs.window.setFrameCorrectness = false
 end
 
+function winmod.center()
+   winmod.resizeCurrentWindow("center")
+end
+
 function winmod.oneThirdLeft()
    local win = hs.window.focusedWindow()
    if win == nil then
@@ -218,6 +225,10 @@ function winmod.bindKeys()
    -- Maximized                                         
    bind(c.max_toggle, winmod.toggleMaximized)
    -- bind(c.max, winmod.maximize)
+   
+      
+   --Center
+   bind(c.center, winmod.center)
                                                         
    -- Move between screens                              
    -- bind(c.screen_left, winmod.oneScreenLeft)

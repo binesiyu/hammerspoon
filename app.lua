@@ -4,6 +4,8 @@ local    applist = {
         {shortcut = '2',appname = 'iTerm'},
         {shortcut = '3',appname = 'player3'},
         {shortcut = 'c',appname = 'Google Chrome'},
+        {shortcut = 'f',appname = 'Finder'},
+        {shortcut = 't',appname = '钉钉'},
     }
 
 for i = 1, #applist do

@@ -58,7 +58,7 @@ local window_cycle = function(backward)
       end
       if to_focus then
         to_focus:focus()
-        focus_screen(to_focus:screen())
+        --focus_screen(to_focus:screen())
       end
     end
     if not focused or not to_focus then
@@ -67,11 +67,24 @@ local window_cycle = function(backward)
   end
 end
 
-local leader = { "ctrl", "shift" }
-
 -- focus 'next' window
-hs.hotkey.bind(leader, "j", window_cycle(true))
+hs.hotkey.bind("ctrl", "tab", window_cycle(true))
 -- focus 'previous' window
-hs.hotkey.bind(leader, "k", window_cycle(false))
+hs.hotkey.bind({"ctrl", "shift"}, "tab", window_cycle(false))
 
+--local logger = hs.logger.new('window-cycle')
+local function window_last()
+    local windows = hs.window.orderedWindows()
+      windows = hs.fnutils.filter(windows, hs.window.isStandard)
+      windows = hs.fnutils.filter(windows, hs.window.isVisible)
+      --logger.df("windows frame: %d", #windows)
+    if #windows >=2 then
+      local to_focus = windows[2]
+      if to_focus then
+        to_focus:focus()
+        --focus_screen(to_focus:screen())
+      end
+    end
+end
+hs.hotkey.bind("alt", "tab", window_last)
 -- vim: sw=2 ts=2 expandtab
