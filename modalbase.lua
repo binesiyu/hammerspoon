@@ -31,6 +31,10 @@ function modalbase:entered()
       exit_others()
     end
     
+    if self.id then
+      table.insert(activeModals, self)
+    end
+    
     local color = self.color or royalblue
     modal_stat(color,0.7)
     
@@ -49,11 +53,21 @@ function modalbase:exited()
     end
     
     self._active = false
+    
+    if self.id then
+      for i=1,#activeModals do
+        if activeModals[i].id == self.id then
+            table.remove(activeModals, i)
+        end
+      end
+    end
+    
     self:exitOther()
     hideHotKey()
 end
 
 modal_list = {}
+activeModals = {}
 
 function exit_others(excepts)
     local function isInExcepts(value,tbl)
@@ -65,9 +79,9 @@ function exit_others(excepts)
         return false
     end
     if excepts == nil then excepts = {} end
-    for i = 1, #modal_list do
-        if modal_list[i]._active and not isInExcepts(modal_list[i]._id, excepts) then
-            modal_list[i]:exit()
+    for i = 1, #activeModals do
+        if activeModals[i]._active and not isInExcepts(activeModals[i]._id, excepts) then
+            activeModals[i]:exit()
         end
     end
 end
