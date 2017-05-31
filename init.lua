@@ -7,10 +7,15 @@
 -- -----------------------------------------------------------------------
 --                         ** Something Global **                       --
 -- -----------------------------------------------------------------------
+hs.hotkey.alertDuration=0
+hs.hints.showTitleThresh = 0
+hs.window.animationDuration = 0
 
 -- -----------------------------------------------------------------------
 --                            ** Requires **                            --
 -- -----------------------------------------------------------------------
+require "color"
+require "show-hotkey"
 
 require "ws"
 
@@ -18,6 +23,15 @@ require "app"
 require "ctrl-esc"
 
 require "window-cycle"
+
+local module_list = {
+    "modes/viewM",
+}
+
+for i=1,#module_list do
+    require(module_list[i])
+end
+
 -- -----------------------------------------------------------------------
 --                            ** For Debug **                           --
 -- -----------------------------------------------------------------------

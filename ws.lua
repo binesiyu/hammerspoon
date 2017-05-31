@@ -7,10 +7,10 @@ local logger = hs.logger.new('oh-my-hs')
 local winmod = {}
 
 winmod.config = {
-   left_half   = { {"ctrl", "alt", "cmd"}, "Left" },
-   right_half  = { {"ctrl", "alt", "cmd"}, "Right" },
-   top_half    = { {"ctrl", "alt", "cmd"}, "Up" },
-   bottom_half = { {"ctrl", "alt", "cmd"}, "Down" },
+   left_half   = { {"ctrl", "alt", "cmd"}, "h" },
+   right_half  = { {"ctrl", "alt", "cmd"}, "l" },
+   top_half    = { {"ctrl", "alt", "cmd"}, "j" },
+   bottom_half = { {"ctrl", "alt", "cmd"}, "k" },
    third_left  = { {"ctrl", "alt"       }, "Left" },
    third_right = { {"ctrl", "alt"       }, "Right" },
    third_up    = { {"ctrl", "alt"       }, "Up" },
@@ -18,8 +18,8 @@ winmod.config = {
    max_toggle  = { {"ctrl", "alt", "cmd"}, "M" },
    center      = { {"ctrl", "alt", "cmd"}, "C" },
    -- max         = { {"ctrl", "alt", "cmd"}, "Up" },
-   -- screen_left = { {"ctrl", "alt"}, "Left" },
-   -- screen_right= { {"ctrl", "alt"}, "Right" },
+   screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
+   screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 }
 
 -- Window cache for window maximize toggler
@@ -231,8 +231,8 @@ function winmod.bindKeys()
    bind(c.center, winmod.center)
                                                         
    -- Move between screens                              
-   -- bind(c.screen_left, winmod.oneScreenLeft)
-   -- bind(c.screen_right, winmod.oneScreenRight)
+   bind(c.screen_left, winmod.oneScreenLeft)
+   bind(c.screen_right, winmod.oneScreenRight)
 end
 
 --- Initialize the module
