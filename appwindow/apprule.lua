@@ -9,6 +9,7 @@ local apprules = {
   rules = {
     Finder              = {{evt = E.activated,    act = A.toFront}},
     ['Google Chrome']   = {{evt = E.launched,     act = A.maximize}},
+    --['Google Chrome']   = {{evt = E.activated,     act = A.debug}},
   },
 }
 
