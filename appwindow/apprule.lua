@@ -10,6 +10,8 @@ local apprules = {
     Finder              = {{evt = E.activated,    act = A.toFront}},
     ['Google Chrome']   = {{evt = E.launched,     act = A.maximize}},
     --['Google Chrome']   = {{evt = E.activated,     act = A.debug}},
+    player3             = {{evt = E.launched,     act = A.moveToPrimary}},
+    Terminal            = {{evt = E.launched,     act = A.moveToPrimary}},
   },
 }
 

@@ -20,6 +20,15 @@ local function maximize(appName, eventType, appObject)
           end)
 end
 
+-- move the main window to primaryScreen
+local function moveToPrimary(appName, eventType, appObject)
+  --log.i("moveToPrimary")
+  hs.timer.waitWhile(hasNoMainWindow(appObject), function()
+            --log.i("moveToPrimary-timer",hs.screen.primaryScreen():id())
+            appObject:mainWindow():moveToScreen(722471052)
+          end)
+end
+
 -- bring the application windows to the front฀勡
 local function bringToFront(appName, eventType, appObject)
   appObject:selectMenuItem({'Window', 'Bring All to Front'})
@@ -55,6 +64,7 @@ local actions = {
   toFront = bringToFront,
   activate = activate,
   debug = appdebug,
+  moveToPrimary = moveToPrimary,
 }
 
 return actions
