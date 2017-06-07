@@ -22,7 +22,7 @@ end
 
 -- move the main window to primaryScreen
 local function moveToPrimary(appName, eventType, appObject)
-  --log.i("moveToPrimary")
+  log.i("moveToPrimary")
   hs.timer.waitWhile(hasNoMainWindow(appObject), function()
             --log.i("moveToPrimary-timer",hs.screen.primaryScreen():id())
             appObject:mainWindow():moveToScreen(722471052)
