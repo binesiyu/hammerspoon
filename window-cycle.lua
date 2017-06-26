@@ -70,10 +70,10 @@ end
 hs.hotkey.setLogLevel(5)
 -- focus 'next' window
 --hs.hotkey.bind("ctrl", "tab", window_cycle(true))
-hs.hotkey.bind("cmd", "tab", window_cycle(true))
+hs.hotkey.bind("alt", "`", window_cycle(true))
 -- focus 'previous' window
 --hs.hotkey.bind({"ctrl", "shift"}, "tab", window_cycle(false))
-hs.hotkey.bind({"cmd", "shift"}, "tab", window_cycle(false))
+hs.hotkey.bind({"alt", "shift"}, "`", window_cycle(false))
 
 --local logger = hs.logger.new('window-cycle')
 local function window_last()
