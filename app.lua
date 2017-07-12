@@ -16,7 +16,7 @@ for i = 1, #applist do
         local appruning = hs.application.get(appname)
         if appruning then
             if appruning:isFrontmost() then
-              appruning:hide()
+              --appruning:hide()
             else
               appruning:activate()
             end
