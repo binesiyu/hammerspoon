@@ -4,6 +4,7 @@ local    applist = {
         {shortcut = '2',appname = 'iTerm'},
         {shortcut = '3',appname = 'player3'},
         {shortcut = '4',appname = 'Cocos Studio 2'},
+        {shortcut = '5',appname = 'Terminal'},
         {shortcut = 'c',appname = 'Google Chrome'},
         {shortcut = 'f',appname = 'Finder'},
         {shortcut = 't',appname = '钉钉'},

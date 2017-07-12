@@ -67,13 +67,67 @@ local window_cycle = function(backward)
   end
 end
 
+--在同一个就用内
+local window_cycle_app = function(backward)
+  return function()
+    local focused = hs.window.focusedWindow()
+    if focused then
+      local windows = nil
+      local app = focused:application()
+      if app then
+        windows = app:allWindows()
+      else
+        windows = hs.window.visibleWindows()
+      end
+      
+      local to_focus
+      
+      windows = hs.fnutils.filter(windows, hs.window.isStandard)
+      windows = hs.fnutils.filter(windows, hs.window.isVisible)
+
+      -- we need to sort the table just because it's sorted randomly every time
+      table.sort(windows, function(w1, w2)
+        return w1:id() > w2:id()
+      end)
+      local size = #windows
+      -- if no -> no action will be perfomed
+      if size > 1 then
+        local last_index = hs.fnutils.indexOf(windows, focused)
+        if last_index then
+          -- todo: replace with fmod?
+          if backward then
+            if last_index > 1 then
+              focus_index = last_index - 1
+            else
+              focus_index = size
+            end
+          else
+            if last_index < size then
+              focus_index = last_index + 1
+            else
+              focus_index = 1
+            end
+          end
+          to_focus = windows[focus_index]
+        end
+      end
+      if to_focus then
+        to_focus:focus()
+        --focus_screen(to_focus:screen())
+      end
+    end
+    if not focused or not to_focus then
+      -- todo: focus next display
+    end
+  end
+end
 hs.hotkey.setLogLevel(5)
 -- focus 'next' window
 --hs.hotkey.bind("ctrl", "tab", window_cycle(true))
-hs.hotkey.bind("alt", "`", window_cycle(true))
+hs.hotkey.bind("alt", "`", window_cycle_app(true))
 -- focus 'previous' window
 --hs.hotkey.bind({"ctrl", "shift"}, "tab", window_cycle(false))
-hs.hotkey.bind({"alt", "shift"}, "`", window_cycle(false))
+hs.hotkey.bind({"alt", "shift"}, "`", window_cycle_app(false))
 
 --local logger = hs.logger.new('window-cycle')
 local function window_last()

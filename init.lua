@@ -32,7 +32,7 @@ for i=1,#module_list do
     require(module_list[i])
 end
 
-require "appwindow/appwatcher"
+--require "appwindow/appwatcher"
 -- -----------------------------------------------------------------------
 --                            ** For Debug **                           --
 -- -----------------------------------------------------------------------
