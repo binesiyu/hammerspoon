@@ -17,6 +17,8 @@ for i = 1, #applist do
         if appruning then
             if appruning:isFrontmost() then
               --appruning:hide()
+            elseif appruning:isHidden() then
+              appruning:unhide()
             else
               appruning:activate()
             end
