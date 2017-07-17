@@ -52,6 +52,17 @@ function switch_window_inapp(app)
     end
 end
   
+  function unminimal_window_inapp(app)
+      local windows = nil
+      windows = app:allWindows()
+      for k,v in pairs(windows) do
+        if v:isMinimized() then
+          v:unminimize()
+          break
+        end
+      end
+end
+
 for i = 1, #applist do
     hs.hotkey.bind('alt', applist[i].shortcut,  function()
         local appname = applist[i].appname
@@ -60,12 +71,16 @@ for i = 1, #applist do
             --已经是最前面的，切后到同一个程序的不同窗口
             if appruning:isFrontmost() then
               --appruning:hide()
+              unminimal_window_inapp(appruning)
               switch_window_inapp(appruning)
             elseif appruning:isHidden() then
-              appruning:unhide()
               --激活应用的窗口
+              appruning:unhide()
+              unminimal_window_inapp(appruning)
+              
             else
               appruning:activate()
+              unminimal_window_inapp(appruning)
             end
         else
             hs.application.launchOrFocus(applist[i].appname)
