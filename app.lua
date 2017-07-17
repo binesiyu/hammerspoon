@@ -8,6 +8,12 @@ local    applist = {
         {shortcut = 'c',appname = 'Google Chrome'},
         {shortcut = 'f',appname = 'Finder'},
         {shortcut = 't',appname = '钉钉'},
+        {shortcut = 'x',appname = 'Xcode'},
+        {shortcut = 'a',appname = 'Android Studio'},
+        {shortcut = 'q',appname = 'QQ'},
+        {shortcut = 'w',appname = 'Microsoft Word'},--word
+        {shortcut = 'e',appname = 'Microsoft Excel'},--excel
+        {shortcut = 'd',appname = 'PDF Expert'},--pdf
     }
 
 function switch_window_inapp(app)
