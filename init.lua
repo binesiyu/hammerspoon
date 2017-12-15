@@ -25,7 +25,7 @@ require "ctrl-esc"
 require "window-cycle"
 
 local module_list = {
-    "modes/viewM",
+    --"modes/viewM",
 }
 
 for i=1,#module_list do

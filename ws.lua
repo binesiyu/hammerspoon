@@ -15,9 +15,9 @@ winmod.config = {
    third_right = { {"ctrl", "alt"       }, "Right" },
    third_up    = { {"ctrl", "alt"       }, "Up" },
    third_down  = { {"ctrl", "alt"       }, "Down" },
-   max_toggle  = { {"ctrl", "alt", "cmd"}, "M" },
+   --max_toggle  = { {"ctrl", "alt", "cmd"}, "M" },
    center      = { {"ctrl", "alt", "cmd"}, "C" },
-   -- max         = { {"ctrl", "alt", "cmd"}, "Up" },
+   max         = { {"ctrl", "alt", "cmd"}, "M" },
    screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
    screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 }
@@ -223,8 +223,8 @@ function winmod.bindKeys()
    bind(c.third_down, winmod.onethirdDown)
                                                         
    -- Maximized                                         
-   bind(c.max_toggle, winmod.toggleMaximized)
-   -- bind(c.max, winmod.maximize)
+   -- bind(c.max_toggle, winmod.toggleMaximized)
+   bind(c.max, winmod.maximize)
    
       
    --Center
