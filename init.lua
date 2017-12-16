@@ -22,7 +22,7 @@ require "ws"
 require "app"
 require "ctrl-esc"
 
-require "window-cycle"
+-- require "window-cycle"
 
 local module_list = {
     --"modes/viewM",
