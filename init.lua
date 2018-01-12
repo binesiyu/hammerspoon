@@ -22,6 +22,8 @@ require "ws"
 require "app"
 require "ctrl-esc"
 
+require "space"
+
 -- require "window-cycle"
 
 local module_list = {

@@ -3,8 +3,8 @@ local    applist = {
         {shortcut = '1',appname = 'MacVim'},
         {shortcut = '2',appname = 'iTerm'},
         {shortcut = '3',appname = 'player3'},
-        {shortcut = '4',appname = 'Cocos Studio 2'},
-        {shortcut = '5',appname = 'Terminal'},
+        {shortcut = '5',appname = 'Cocos Studio 2'},
+        {shortcut = '4',appname = 'Terminal'},
         {shortcut = 'c',appname = 'Google Chrome'},
         {shortcut = 'f',appname = 'Finder'},
         {shortcut = 't',appname = '钉钉'},
@@ -15,19 +15,20 @@ local    applist = {
         {shortcut = 'e',appname = 'Microsoft Excel'},--excel
         {shortcut = 'd',appname = 'PDF Expert'},--pdf
         {shortcut = 's',appname = 'SourceTree'},--sorcetree
+        {shortcut = 'z',appname = 'ZeroBraneStudio'},--ZeroBraneStudio
     }
 
 function switch_window_inapp(app)
     local focused = app:focusedWindow()
     if focused then
-      local windows = nil
+      local windows
       windows = app:allWindows()
       if #windows <= 1 then
         return
       end
-      
+
       local to_focus
-      
+
       windows = hs.fnutils.filter(windows, hs.window.isStandard)
       windows = hs.fnutils.filter(windows, hs.window.isVisible)
 
@@ -52,7 +53,7 @@ function switch_window_inapp(app)
       end
     end
 end
-  
+
   function unminimal_window_inapp(app)
       local windows = nil
       windows = app:allWindows()
@@ -78,7 +79,7 @@ for i = 1, #applist do
               --激活应用的窗口
               appruning:unhide()
               unminimal_window_inapp(appruning)
-              
+
             else
               appruning:activate()
               unminimal_window_inapp(appruning)
