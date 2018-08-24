@@ -3,7 +3,7 @@ function moveWindowOneSpace(direction)
    local win = hs.window.focusedWindow()
    _clickPoint = win:zoomButtonRect()
 
-   _clickPoint.x = _clickPoint.x + _clickPoint.w + 20
+   _clickPoint.x = _clickPoint.x + _clickPoint.w + 5
    _clickPoint.y = _clickPoint.y + (_clickPoint.h / 2)
 
    local mouseClickEvent = hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftmousedown, _clickPoint)

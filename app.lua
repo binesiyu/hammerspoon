@@ -13,7 +13,7 @@ local    applist = {
         {shortcut = 'q',appname = 'QQ'},
         {shortcut = 'w',appname = 'Microsoft Word'},--word
         {shortcut = 'e',appname = 'Microsoft Excel'},--excel
-        {shortcut = 'd',appname = 'PDF Expert'},--pdf
+        --{shortcut = 'd',appname = 'PDF Expert'},--pdf
         {shortcut = 's',appname = 'SourceTree'},--sorcetree
         {shortcut = 'z',appname = 'ZeroBraneStudio'},--ZeroBraneStudio
     }
