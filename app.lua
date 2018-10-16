@@ -1,6 +1,6 @@
 -- app
 local    applist = {
-        {shortcut = '1',appname = 'MacVim'},
+        {shortcut = '1',appname = 'MacVim',unmini = false},
         {shortcut = '2',appname = 'iTerm'},
         {shortcut = '3',appname = 'player3'},
         {shortcut = '5',appname = 'Cocos Studio 2'},
@@ -69,20 +69,30 @@ for i = 1, #applist do
     hs.hotkey.bind('alt', applist[i].shortcut,  function()
         local appname = applist[i].appname
         local appruning = hs.application.get(appname)
+        local isunminimal = true
+        if applist[i].unmini ~= nil then
+            isunminimal = applist[i].unmini
+        end
+
         if appruning then
             --已经是最前面的，切后到同一个程序的不同窗口
             if appruning:isFrontmost() then
               --appruning:hide()
-              --unminimal_window_inapp(appruning)
+              if isunminimal then
+                unminimal_window_inapp(appruning)
+              end
               switch_window_inapp(appruning)
             elseif appruning:isHidden() then
               --激活应用的窗口
               appruning:unhide()
-              --unminimal_window_inapp(appruning)
-
+              if isunminimal then
+                unminimal_window_inapp(appruning)
+              end
             else
               appruning:activate()
-              --unminimal_window_inapp(appruning)
+              if isunminimal then
+                unminimal_window_inapp(appruning)
+              end
             end
         else
             hs.application.launchOrFocus(applist[i].appname)
