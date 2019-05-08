@@ -47,7 +47,7 @@ end
 
 set_app_input_method('Hammerspoon', English, hs.window.filter.windowCreated)
 set_app_input_method('Spotlight', English, hs.window.filter.windowCreated)
-set_app_input_method('Alfred', English, hs.window.filter.windowCreated)
+set_app_input_method('Alfred 3', English, hs.window.filter.windowCreated)
 set_app_input_method('VimR', English)
 set_app_input_method('MacVim', English)
 set_app_input_method('iTerm2', English)
