@@ -1,7 +1,7 @@
 -- app
 local    applist = {
-        {shortcut = '1',appname = 'MacVim',unmini = false},
-        {shortcut = 'v',appname = 'VimR',unmini = false},
+        {shortcut = 'v',appname = 'MacVim',unmini = false},
+        {shortcut = '1',appname = 'VimR',unmini = false},
         {shortcut = '2',appname = 'iTerm'},
         {shortcut = '3',appname = 'player3'},
         {shortcut = '5',appname = 'Cocos Studio 2'},

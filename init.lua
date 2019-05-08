@@ -24,6 +24,8 @@ require "ctrl-esc"
 
 -- require "space"
 require "space_plugin"
+
+require "input"
 -- require "window-cycle"
 
 local module_list = {
