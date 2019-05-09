@@ -17,20 +17,49 @@
 
 local hs = _G.hs
 local keycodes = hs.keycodes
+local log = require'hs.logger'.new('input','info')
 
-local function changeInput(input)
-    if keycodes.currentSourceID() ~= input then
+local function log_rime()
+    local logstr,status,logtype,rc = hs.execute('squirrel_client -g ascii_mode',true)
+    log.i("log_rime_output " .. tostring(logstr))
+    log.i("log_rime_status " .. tostring(status))
+    log.i("log_rime_type " .. tostring(logtype))
+    log.i("log_rime_rc " .. tostring(rc))
+end
+
+
+local function changeInput_rime(input,Chinese)
+    local curInput = keycodes.currentSourceID()
+    if curInput == 'im.rime.inputmethod.Squirrel.Rime' then
+        if Chinese then
+            -- log_rime()
+            hs.execute('squirrel_client -u ascii_mode')
+            -- log_rime()
+        else
+            -- log_rime()
+            hs.execute('squirrel_client -s ascii_mode')
+            -- log_rime()
+        end
+    elseif curInput ~= input then
         keycodes.currentSourceID(input)
     end
 end
 
+-- local function changeInput(input)
+--     if keycodes.currentSourceID() ~= input then
+--         keycodes.currentSourceID(input)
+--     end
+-- end
+
 local function Chinese()
-   changeInput("com.baidu.inputmethod.BaiduIM.wubi")
+   -- changeInput("com.baidu.inputmethod.BaiduIM.wubi")
+   changeInput_rime('im.rime.inputmethod.Squirrel.Rime',true)
    -- hs.alert.show("中文")
 end
 
 local function English()
-   changeInput("com.apple.keylayout.US")
+   -- changeInput("com.apple.keylayout.US")
+   changeInput_rime("com.apple.keylayout.US",false)
    -- hs.alert.show("英文")
 end
 
@@ -48,10 +77,10 @@ end
 set_app_input_method('Hammerspoon', English, hs.window.filter.windowCreated)
 set_app_input_method('Spotlight', English, hs.window.filter.windowCreated)
 set_app_input_method('Alfred 3', English, hs.window.filter.windowCreated)
-set_app_input_method('VimR', English)
-set_app_input_method('MacVim', English)
-set_app_input_method('iTerm2', English)
-set_app_input_method('Google Chrome', English)
+-- set_app_input_method('VimR', English)
+-- set_app_input_method('MacVim', English)
+-- set_app_input_method('iTerm2', English)
+-- set_app_input_method('Google Chrome', English)
 set_app_input_method('微信', Chinese)
 set_app_input_method('钉钉', Chinese)
 

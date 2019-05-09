@@ -26,6 +26,7 @@ require "ctrl-esc"
 require "space_plugin"
 
 require "input"
+require "vim"
 -- require "window-cycle"
 
 local module_list = {
