@@ -19,7 +19,7 @@ local hs = _G.hs
 local keycodes = hs.keycodes
 
 local function changeInput(input)
-    if keycodes.currentSourceID() ~= "input" then
+    if keycodes.currentSourceID() ~= input then
         keycodes.currentSourceID(input)
     end
 end
