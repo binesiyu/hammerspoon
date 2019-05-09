@@ -21,36 +21,41 @@ local    applist = {
         {shortcut = 'z',appname = 'ZeroBraneStudio'},--ZeroBraneStudio
     }
 
+local function filter_window(windows)
+    windows = hs.fnutils.filter(windows, hs.window.isStandard)
+    windows = hs.fnutils.filter(windows, hs.window.isVisible)
+    return windows
+end
+
 local function switch_window_inapp(focused,windows)
+    local to_focus
     if focused then
-      if #windows <= 1 then
-        return
-      end
-
-      local to_focus
-
-      windows = hs.fnutils.filter(windows, hs.window.isStandard)
-      windows = hs.fnutils.filter(windows, hs.window.isVisible)
-
-      -- we need to sort the table just because it's sorted randomly every time
-      table.sort(windows, function(w1, w2)
-        return w1:id() > w2:id()
-      end)
-      local size = #windows
-      -- if no -> no action will be perfomed
-      if size > 1 then
-        local last_index = hs.fnutils.indexOf(windows, focused)
-        if last_index then
-          local focus_index = 1
-          if last_index < size then
-            focus_index = last_index + 1
-          end
-          to_focus = windows[focus_index]
+        if #windows <= 1 then
+            return
         end
-      end
-      if to_focus then
+
+        -- we need to sort the table just because it's sorted randomly every time
+        table.sort(windows, function(w1, w2)
+            return w1:id() > w2:id()
+        end)
+        local size = #windows
+        -- if no -> no action will be perfomed
+        if size > 1 then
+            local last_index = hs.fnutils.indexOf(windows, focused)
+            if last_index then
+                local focus_index = 1
+                if last_index < size then
+                    focus_index = last_index + 1
+                end
+                to_focus = windows[focus_index]
+            end
+        end
+    elseif #windows > 0 then
+        to_focus = windows[1]
+    end
+
+    if to_focus then
         to_focus:focus()
-      end
     end
 end
 
@@ -76,6 +81,7 @@ local function focusApp(appname,isunminimal)
             end
             local focused = appruning:focusedWindow()
             local windows = appruning:allWindows()
+            windows = filter_window(windows)
             switch_window_inapp(focused,windows)
         elseif appruning:isHidden() then
             --激活应用的窗口
@@ -107,12 +113,13 @@ local function focusAppMul(appname,isunminimal)
 
             if appruning:isRunning() then
                 local windows = appruning:allWindows()
+                windows = filter_window(windows)
                 windowsAll = hs.fnutils.concat(windowsAll,windows)
             end
         end
     end
 
-    if focused then
+    if #windowsAll > 0 then
         switch_window_inapp(focused,windowsAll)
     else
         focusApp(appname[1],isunminimal)
