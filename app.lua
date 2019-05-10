@@ -18,7 +18,7 @@ local    applist = {
         {shortcut = 'w',appname = 'Microsoft Word'},--word
         {shortcut = 'e',appname = 'Microsoft Excel'},--excel
         --{shortcut = 'd',appname = 'PDF Expert'},--pdf
-        {shortcut = 's',appname = 'com.torusknot.SourceTreeNotMAS'},--sorcetree
+        {shortcut = 's',appname = 'com.torusknot.SourceTreeNotMAS',unmini = false},--sorcetree
         {shortcut = 'z',appname = 'ZeroBraneStudio'},--ZeroBraneStudio
     }
 
