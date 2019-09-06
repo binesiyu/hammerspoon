@@ -15,7 +15,7 @@ hs.window.animationDuration = 0
 --                            ** Requires **                            --
 -- -----------------------------------------------------------------------
 require "color"
-require "show-hotkey"
+--require "show-hotkey"
 
 require "ws"
 
@@ -23,7 +23,7 @@ require "app"
 require "ctrl-esc"
 
 -- require "space"
-require "space_plugin"
+-- require "space_plugin"
 
 --require "input"
 --require "vim"
