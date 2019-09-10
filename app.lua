@@ -3,8 +3,8 @@ local hs = _G.hs
 -- local log = require'hs.logger'.new('app','info')
 
 local    applist = {
-        {shortcut = 'v',appname = 'Visual Studio Code',unmini = false},
-        {shortcut = '1',appname = {'MacVim','VimR','Visual Studio Code',},unmini = false},
+        {shortcut = 'v',appname = 'MacVim',unmini = false},
+        {shortcut = '1',appname = {'MacVim','VimR','com.microsoft.VSCode',},unmini = false},
         {shortcut = '2',appname = 'iTerm'},
         {shortcut = '3',appname = 'player3'},
         {shortcut = '5',appname = 'Cocos Studio 2'},
