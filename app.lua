@@ -6,7 +6,7 @@ local    applist = {
         {shortcut = 'v',appname = 'MacVim',unmini = false},
         {shortcut = '1',appname = {'MacVim','VimR','com.microsoft.VSCode',},unmini = false},
         {shortcut = '2',appname = 'iTerm'},
-        {shortcut = '3',appname = 'player3'},
+        {shortcut = '3',appname = {'player3','Unity',},unmini = false},
         {shortcut = '5',appname = 'Cocos Studio 2'},
         {shortcut = '4',appname = 'Terminal'},
         {shortcut = 'c',appname = 'Google Chrome'},
