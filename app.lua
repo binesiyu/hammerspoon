@@ -15,8 +15,8 @@ local    applist = {
         {shortcut = 'x',appname = 'Xcode'},
         {shortcut = 'a',appname = 'Android Studio'},
         {shortcut = 'q',appname = 'QQ'},
-        {shortcut = 'w',appname = 'Microsoft Word'},--word
-        {shortcut = 'e',appname = 'Microsoft Excel'},--excel
+        {shortcut = 'w',appname = 'WPS Office'},--word
+        {shortcut = 'e',appname = 'WPS Officl'},--excel
         --{shortcut = 'd',appname = 'PDF Expert'},--pdf
         {shortcut = 's',appname = 'com.torusknot.SourceTreeNotMAS',unmini = false},--sorcetree
         {shortcut = 'z',appname = 'ZeroBraneStudio'},--ZeroBraneStudio
