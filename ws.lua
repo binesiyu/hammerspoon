@@ -7,14 +7,14 @@ local logger = hs.logger.new('oh-my-hs')
 local winmod = {}
 
 winmod.config = {
-   left_half   = { {"ctrl", "alt", "cmd"}, "Left" },
-   right_half  = { {"ctrl", "alt", "cmd"}, "Right" },
-   top_half    = { {"ctrl", "alt", "cmd"}, "Up" },
-   bottom_half = { {"ctrl", "alt", "cmd"}, "Down" },
-   third_left  = { {"ctrl", "alt"       }, "Left" },
-   third_right = { {"ctrl", "alt"       }, "Right" },
-   third_up    = { {"ctrl", "alt"       }, "Up" },
-   third_down  = { {"ctrl", "alt"       }, "Down" },
+   left_half   = { {"ctrl", "alt", "cmd"}, ";" },
+   right_half  = { {"ctrl", "alt", "cmd"}, "'" },
+   top_half    = { {"ctrl", "alt", "cmd"}, "[" },
+   bottom_half = { {"ctrl", "alt", "cmd"}, "/" },
+   third_left  = { {"ctrl", "alt"       }, ";" },
+   third_right = { {"ctrl", "alt"       }, "'" },
+   third_up    = { {"ctrl", "alt"       }, "[" },
+   third_down  = { {"ctrl", "alt"       }, "/" },
    --max_toggle  = { {"ctrl", "alt", "cmd"}, "M" },
    center      = { {"ctrl", "alt", "cmd"}, "C" },
    max         = { {"ctrl", "alt", "cmd"}, "M" },
@@ -215,22 +215,22 @@ function winmod.bindKeys()
    bind(c.right_half, winmod.rightHalf)
    bind(c.top_half, winmod.topHalf)
    bind(c.bottom_half, winmod.bottomHalf)
-                                                        
-   -- Thirds of the screen                              
+
+   -- Thirds of the screen
    bind(c.third_left, winmod.oneThirdLeft)
    bind(c.third_right, winmod.oneThirdRight)
    bind(c.third_up, winmod.oneThirdUp)
    bind(c.third_down, winmod.onethirdDown)
-                                                        
-   -- Maximized                                         
+
+   -- Maximized
    -- bind(c.max_toggle, winmod.toggleMaximized)
    bind(c.max, winmod.maximize)
-   
-      
+
+
    --Center
    bind(c.center, winmod.center)
-                                                        
-   -- Move between screens                              
+
+   -- Move between screens
    --bind(c.screen_left, winmod.oneScreenLeft)
    --bind(c.screen_right, winmod.oneScreenRight)
 end
