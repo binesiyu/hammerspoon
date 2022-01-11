@@ -4,7 +4,7 @@ local hs = _G.hs
 
 local    applist = {
         {shortcut = 'v',appname = 'MacVim',unmini = false},
-        {shortcut = '1',appname = {'MacVim','VimR','com.microsoft.VSCode',},unmini = false},
+        {shortcut = '1',appname = {'MacVim','VimR','com.jetbrains.rider','com.microsoft.VSCode',},unmini = false},
         {shortcut = '2',appname = 'iTerm'},
         {shortcut = '3',appname = {'player3','Unity',},unmini = false},
         {shortcut = '5',appname = 'Cocos Studio 2'},
