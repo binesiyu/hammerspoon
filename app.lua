@@ -6,12 +6,13 @@ local    applist = {
         {shortcut = 'v',appname = 'MacVim',unmini = false},
         {shortcut = '1',appname = {'MacVim','VimR','com.jetbrains.rider','com.microsoft.VSCode',},unmini = false},
         {shortcut = '2',appname = 'iTerm'},
-        {shortcut = '3',appname = {'player3','Unity',},unmini = false},
+        {shortcut = '3',appname = {'player3','com.microsoft.rdc.mac','Unity'},unmini = false},
         {shortcut = '5',appname = 'Cocos Studio 2'},
         {shortcut = '4',appname = 'Terminal'},
         {shortcut = 'c',appname = 'Google Chrome'},
         {shortcut = 'f',appname = 'Finder'},
         {shortcut = 't',appname = '钉钉'},
+        {shortcut = 'r',appname = 'com.microsoft.rdc.mac'},
         {shortcut = 'x',appname = 'Xcode'},
         {shortcut = 'a',appname = 'Android Studio'},
         {shortcut = 'q',appname = 'QQ'},
@@ -23,7 +24,7 @@ local    applist = {
     }
 
 local function filter_window(windows)
-    windows = hs.fnutils.filter(windows, hs.window.isStandard)
+    -- windows = hs.fnutils.filter(windows, hs.window.isStandard)
     windows = hs.fnutils.filter(windows, hs.window.isVisible)
     return windows
 end
