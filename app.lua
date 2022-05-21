@@ -2,18 +2,20 @@
 local hs = _G.hs
 -- local log = require'hs.logger'.new('app','info')
 
+-- defaults write com.p5sys.jump.mac.viewer ApplePressAndHoldEnabled -bool true
+local remoteApp = "com.p5sys.jump.mac.viewer"
 local    applist = {
-        {shortcut = 'v',appname = 'MacVim',unmini = false},
+        {shortcut = 'v',appname = 'MacVim',unmini = false,checkRemote = true},
         {shortcut = '1',appname = {'MacVim','VimR','com.jetbrains.rider','com.microsoft.VSCode',},unmini = false},
-        {shortcut = '2',appname = 'iTerm'},
+        {shortcut = '2',appname = 'iTerm',checkRemote = true},
         -- {shortcut = '3',appname = {'player3','com.p5sys.jump.mac.viewer','Unity'},unmini = false},
         {shortcut = '5',appname = 'Cocos Studio 2'},
         {shortcut = '4',appname = 'Terminal'},
-        {shortcut = 'c',appname = 'Google Chrome'},
+        {shortcut = 'c',appname = 'Google Chrome',checkRemote = true},
         {shortcut = 'f',appname = 'Finder'},
         {shortcut = 't',appname = '钉钉'},
-        {shortcut = 'r',appname = 'com.p5sys.jump.mac.viewer'},
-        {shortcut = '3',appname = 'com.p5sys.jump.mac.viewer'},
+        {shortcut = 'r',appname = remoteApp},
+        {shortcut = '3',appname = remoteApp},
         {shortcut = 'x',appname = 'Xcode'},
         {shortcut = 'a',appname = 'Android Studio'},
         {shortcut = 'q',appname = 'QQ'},
@@ -135,6 +137,7 @@ local function factory_app(appData)
     if appData.unmini ~= nil then
         isunminimal = appData.unmini
     end
+
     if type(appname) == 'table' then
         return function()
             focusAppMul(appname,isunminimal)
@@ -145,10 +148,65 @@ local function factory_app(appData)
     end
 end
 
+local remoteAppKey = {}
 for i = 1, #applist do
-    hs.hotkey.bind('alt', applist[i].shortcut,  factory_app(applist[i]))
+    local appData = applist[i]
+    local hotkey = hs.hotkey.bind('alt', appData.shortcut,factory_app(appData))
+    if appData.checkRemote then
+        -- hs.alert.show("checkremote " .. appData.shortcut)
+        table.insert(remoteAppKey,hotkey)
+    end
 end
 
+
+local remoteKeyEnable = true
+local function disableKey()
+    if not remoteKeyEnable then
+        return
+    end
+    remoteKeyEnable = false
+    -- hs.alert.show("disableKey ")
+    for _,hotkey in ipairs(remoteAppKey) do
+        hotkey:disable()
+    end
+end
+
+local function enableKey()
+    if remoteKeyEnable then
+        return
+    end
+    remoteKeyEnable = true
+    -- hs.alert.show("enablekey ")
+    for _,hotkey in ipairs(remoteAppKey) do
+        hotkey:enable()
+    end
+end
+
+local function focusRemoteApp(w)
+    if w:isStandard() then
+        enableKey(w)
+    else
+        disableKey(w)
+    end
+end
+
+local function unfocusRemoteApp(w)
+    if w:isStandard() then
+        -- disableKey(w)
+    else
+        enableKey(w)
+    end
+end
+
+-- hs.window.filter.new(false):setAppFilter("Jump Desktop",{})
+hs.window.filter.new(function(w)
+    -- hs.alert.show(w:application().name)
+    if w:application():name() ~= "Jump Desktop" then return false end
+    -- if w:isStandard() then return false end
+    return true
+end)
+:subscribe(hs.window.filter.windowFocused, focusRemoteApp)
+:subscribe(hs.window.filter.windowUnfocused, unfocusRemoteApp)
 -- Toggle an application between being frontmost app and hidden
 -- local function toggle_application(_app)
 --     local app = hs.appfinder.appFromName(_app)
