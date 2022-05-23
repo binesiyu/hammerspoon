@@ -6,23 +6,23 @@ local hs = _G.hs
 local remoteApp = "com.p5sys.jump.mac.viewer"
 local    applist = {
         {shortcut = 'v',appname = 'MacVim',unmini = false,checkRemote = true},
-        {shortcut = '1',appname = {'MacVim','VimR','com.jetbrains.rider','com.microsoft.VSCode',},unmini = false},
+        {shortcut = '1',appname = {'MacVim','VimR','com.jetbrains.rider','com.microsoft.VSCode',},unmini = false,checkRemote = true},
         {shortcut = '2',appname = 'iTerm',checkRemote = true},
         -- {shortcut = '3',appname = {'player3','com.p5sys.jump.mac.viewer','Unity'},unmini = false},
         {shortcut = '5',appname = 'Cocos Studio 2'},
         {shortcut = '4',appname = 'Terminal'},
         {shortcut = 'c',appname = 'Google Chrome',checkRemote = true},
-        {shortcut = 'f',appname = 'Finder'},
+        {shortcut = 'f',appname = 'Finder',checkRemote = true},
         {shortcut = 't',appname = '钉钉'},
-        {shortcut = 'r',appname = remoteApp},
-        {shortcut = '3',appname = remoteApp},
+        {shortcut = 'r',appname = remoteApp,checkRemote = true},
+        {shortcut = '3',appname = remoteApp,checkRemote = true},
         {shortcut = 'x',appname = 'Xcode'},
         {shortcut = 'a',appname = 'Android Studio'},
         {shortcut = 'q',appname = 'QQ'},
         {shortcut = 'w',appname = 'WPS Office'},--word
-        {shortcut = 'e',appname = 'WPS Officl'},--excel
+        {shortcut = 'e',appname = 'WPS Officl',checkRemote = true},--excel
         --{shortcut = 'd',appname = 'PDF Expert'},--pdf
-        {shortcut = 's',appname = 'com.torusknot.SourceTreeNotMAS',unmini = false},--sorcetree
+        {shortcut = 's',appname = 'com.torusknot.SourceTreeNotMAS',unmini = false,checkRemote = true},--sorcetree
         {shortcut = 'z',appname = 'ZeroBraneStudio'},--ZeroBraneStudio
     }
 
