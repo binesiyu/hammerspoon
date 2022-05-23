@@ -17,7 +17,7 @@ local    applist = {
         {shortcut = 'r',appname = remoteApp,checkRemote = true},
         {shortcut = '3',appname = remoteApp,checkRemote = true},
         {shortcut = 'x',appname = 'Xcode',checkRemote = true},
-        {shortcut = 'a',appname = 'Android Studio'},
+        {shortcut = 'a',appname = 'Android Studio',checkRemote = true},
         {shortcut = 'q',appname = 'QQ'},
         {shortcut = 'w',appname = 'WPS Office'},--word
         {shortcut = 'e',appname = 'WPS Officl',checkRemote = true},--excel
