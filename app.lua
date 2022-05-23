@@ -16,7 +16,7 @@ local    applist = {
         {shortcut = 't',appname = '钉钉'},
         {shortcut = 'r',appname = remoteApp,checkRemote = true},
         {shortcut = '3',appname = remoteApp,checkRemote = true},
-        {shortcut = 'x',appname = 'Xcode'},
+        {shortcut = 'x',appname = 'Xcode',checkRemote = true},
         {shortcut = 'a',appname = 'Android Studio'},
         {shortcut = 'q',appname = 'QQ'},
         {shortcut = 'w',appname = 'WPS Office'},--word
