@@ -20,7 +20,7 @@ require "color"
 require "ws"
 
 require "app"
-require "ctrl-esc"
+-- require "ctrl-esc"
 
 -- require "space"
 -- require "space_plugin"
