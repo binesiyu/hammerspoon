@@ -109,17 +109,18 @@ local function focusAppMul(appname,isunminimal)
     local focused
     local windowsAll = {}
     for _,name in ipairs(appname) do
-        local appruning = hs.application.get(name)
-
+        local appruning = {hs.application.find(name,true,true)}
         if appruning then
-            if appruning:isFrontmost() then
-                focused = appruning:focusedWindow()
-            end
+            for _,app in ipairs(appruning) do
+                if app:isFrontmost() then
+                    focused = app:focusedWindow()
+                end
 
-            if appruning:isRunning() then
-                local windows = appruning:allWindows()
-                windows = filter_window(windows)
-                windowsAll = hs.fnutils.concat(windowsAll,windows)
+                if app:isRunning() then
+                    local windows = app:allWindows()
+                    windows = filter_window(windows)
+                    windowsAll = hs.fnutils.concat(windowsAll,windows)
+                end
             end
         end
     end
