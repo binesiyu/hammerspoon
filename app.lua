@@ -6,7 +6,7 @@ local hs = _G.hs
 local remoteApp = "com.p5sys.jump.mac.viewer"
 local    applist = {
         {shortcut = 'v',appname = 'MacVim',unmini = false,checkRemote = true},
-        {shortcut = '1',appname = {'MacVim','VimR','Neovide','com.jetbrains.rider','com.microsoft.VSCode',},unmini = false,checkRemote = true},
+        {shortcut = '1',appname = {'MacVim','com.neovide.neovide','com.jetbrains.rider','com.microsoft.VSCode',},unmini = false,checkRemote = true},
         {shortcut = '2',appname = 'iTerm',checkRemote = true},
         {shortcut = '3',appname = {'player3','com.p5sys.jump.mac.viewer','Unity'},unmini = false},
         {shortcut = '5',appname = 'Cocos Studio 2'},
